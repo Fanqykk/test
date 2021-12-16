@@ -31,6 +31,7 @@ def check_devices_link():
 # 检查本地文件是否存在
 def check_local_file():
     file_list = glob.glob('*.apk')
+    print(file_list)
     file_index = len(file_list)
     if file_index != 0:
         if file_index == 1:
