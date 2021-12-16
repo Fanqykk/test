@@ -31,12 +31,6 @@ class MyTests(unittest.TestCase):
             self.driver.find_element_by_id('com.youdao.calculator:id/view_empty_container').click()
             time.sleep(1)
 
-        '''btn_xpath = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.view.View/android.widget.GridView/android.widget.FrameLayout[{0}]/android.widget.FrameLayout'
-        self.driver.find_element_by_xpath(btn_xpath.format(7)).click()
-        self.driver.find_element_by_xpath(btn_xpath.format(10)).click()
-        self.driver.find_element_by_xpath(btn_xpath.format(8)).click()
-        time.sleep(5)'''
-
         self.driver.find_element_by_xpath(
         "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.view.ViewGroup/android.widget.GridView/android.widget.FrameLayout[17]/android.widget.FrameLayout").click()
         time.sleep(2)
