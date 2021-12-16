@@ -52,8 +52,8 @@ def check_local_file():
 def install_apk(choose_file_num= 0):
     file_path = os.getcwd()
     for install_apk_to_devices_index in range(len(devices_list_finally)):
-        print('adb -s' + ' '+ devices_list_finally[install_apk_to_devices_index] + ' ' + 'install' + ' '+file_path + '\\' +file_list_finally[choose_file_num])
-        os.system('adb -s' + ' '+ devices_list_finally[install_apk_to_devices_index] + ' ' + 'install' + ' '+file_path+ '\\' + file_list_finally[choose_file_num])
+        print('adb -s' + ' ' + devices_list_finally[install_apk_to_devices_index] + ' ' + 'install' + ' '+file_path+'\\'+file_list_finally[choose_file_num])
+        #os.system('adb -s' + ' ' + devices_list_finally[install_apk_to_devices_index] + ' ' + 'install' + ' '+file_path+'\\' + file_list_finally[choose_file_num])
     time.sleep(3)
     print('      *       *       *  ')
     print('    *    *    *     *   ')
