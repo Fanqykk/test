@@ -9,10 +9,10 @@ project_path = os.path.abspath(os.path.join(os.path.dirname(os.path.split(os.pat
 # 测试用例代码存放路径（拥有构建suite）
 test_case_path = project_path + "\\src\\test_case"
 # 测试报告的存放路径，并以当前时间作为报告的前缀
-report_path = project_path + "\\src\\report\\"
+report_path = project_path + "\\src\\report\\html\\"
 report_name = report_path + time.strftime('%Y-%m-%d_%H_%M_%S_', time.localtime())
 # img存放路径
-img_path = report_path + "\\img\\"
+img_path = project_path + "\\src\\report\\screenshot\\"
 img_name = img_path + time.strftime('%Y-%m-%d_%H_%M_%S_', time.localtime()) + ".png"
 
 
