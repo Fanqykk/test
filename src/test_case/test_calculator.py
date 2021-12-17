@@ -48,6 +48,17 @@ class MyTests(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element_by_id("com.youdao.calculator:id/actionbar_history_view").click()
         time.sleep(2)
+        error_mes = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView").text
+        try:
+            assert error_mes == u'历史记录'
+            print('Test pass.')
+        except Exception as e:
+            print("Test fail.", format(e))
+        '''
+        num1 = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]").text
+        print(num1)
+        return num1
+        '''
 
     # 测试结束后执行的方法
     def tearDown(self):

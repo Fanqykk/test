@@ -1,12 +1,13 @@
 import HTMLTestRunner
 import unittest
-
+import pytest
 from config.globalparameter import report_name, test_case_path
 
 suite = unittest.defaultTestLoader.discover(start_dir=test_case_path, pattern='test*.py')
 
 # 执行测试
 if __name__ == "__main__":
+    pytest.main(['--alluredir=allureout'])
     report = report_name + "Report.html"
     fb = open(report, 'wb')
     runner = HTMLTestRunner.HTMLTestRunner(

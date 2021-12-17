@@ -32,6 +32,16 @@ class TestLong(unittest.TestCase):
         ts = self.driver.find_element_by_id("com.tencent.mm:id/erw")
         self.assertIn("短信验证码", ts.text, msg='fail')
         self.login.click_nextstep_button()  # 点击登录按钮
+        time.sleep(3)
+        '''
+        error_mes = self.driver.find_element_by_id("com.tencent.mm:id/ffh").text
+        print(error_mes)
+        try:
+            assert error_mes == u'帐号或密码错误，请重新填写。'
+            print('Test pass.')
+        except Exception as e:
+            print("Test fail.", format(e))
+        '''
 
     def tearDown(self):
         self.driver.quit()
