@@ -1,8 +1,7 @@
-import sys
+import os
 import time
 import unittest
 from appium import webdriver
-import allure
 
 
 class MyTests(unittest.TestCase):
@@ -57,16 +56,13 @@ class MyTests(unittest.TestCase):
         except Exception as e:
             print("Test fail.", format(e))
             # 截图路保存径，绝对路径，也可以用相对路径
-            screenshoturl = r"D:\code\git\test\src\report\screenshot\\"
+            screenshoturl = r"D:\code\git\test\src\report\images\\"
             # 时间样式
-            isotimeformat = '%Y%m%d%H%M%S'
-            # 寻找失败时自动截图至指定目录sreenshot，截图名称为调用方法名（测试用例名）+ 时间戳 + png后缀
-            self.driver.get_screenshot_as_file(screenshoturl + sys._getframe(1).f_code.co_name + '_' + time.strftime(isotimeformat, time.localtime(time.time())) + ".png")
-        '''
-        num1 = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]").text
-        print(num1)
-        return num1
-        '''
+            timestrmap = time.strftime('%Y%m%d_%H.%M.%S')
+            # 寻找失败时自动截图至指定目录images，截图名称为 时间戳 + png后缀
+            imgPath = os.path.join(screenshoturl, '%s.png' % str(timestrmap))
+            self.driver.save_screenshot(imgPath)
+            print('screenshot:', timestrmap, '.png')
 
     # 测试结束后执行的方法
     def tearDown(self):
