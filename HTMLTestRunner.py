@@ -51,12 +51,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # URL: http://tungwaiyip.info/software/HTMLTestRunner.html
 
-__author__ = "天枢"
+__author__ = "测试测试测试"
 __version__ = "0.8.2.2"
 
 """
 Change History
-Version 0.8.2.2 -天枢
+Version 0.8.2.2 -测试测试测试
 *增加了报告展示截图功能
 
 Version 0.8.2

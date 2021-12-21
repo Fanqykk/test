@@ -1,5 +1,4 @@
 import time
-
 import pytest
 import unittest
 from src.data.data import *
@@ -9,7 +8,7 @@ from src.common import driver_config
 
 
 @ddt
-class TestLong(unittest.TestCase):
+class TestLogin(unittest.TestCase):
     def setUp(self):
         driver = driver_config.Driver_Config()
         self.driver = driver.get_driver()
@@ -17,7 +16,7 @@ class TestLong(unittest.TestCase):
     @data(*get_log_data())
     @unpack
     @pytest.mark.flaky(rerus=3)
-    def test_long_1(self, username, password):
+    def test_login_1(self, username, password):
         """微信登录"""
         self.login = login.Login_page(self.driver)
         self.login.click_enter_button()  # 点击登录按钮
