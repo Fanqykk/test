@@ -44,8 +44,8 @@ class TestLogin(unittest.TestCase):
                     self.assertEqual(exp, message)
                 except Exception as e:
                     print('断言失败', e)
-                    # screenshoturl = r"C:\ProgramData\Jenkins\.jenkins\workspace\python_autotest\src\report\images\\"
-                    screenshoturl = r"D:\code\git\test\src\report\images\\"
+                    screenshoturl = r"C:\ProgramData\Jenkins\.jenkins\workspace\python_autotest\src\report\images\\"
+                    # screenshoturl = r"D:\code\git\test\src\report\images\\"
                     # 时间样式
                     timestrmap = time.strftime('%Y%m%d_%H.%M.%S')
                     # 寻找失败时自动截图至指定目录images，截图名称为 时间戳 + png后缀
@@ -65,8 +65,8 @@ class TestLogin(unittest.TestCase):
                 self.assertEqual(exp, result)
             except Exception as e:
                 print('断言失败', e)
-                # screenshoturl = r"C:\ProgramData\Jenkins\.jenkins\workspace\python_autotest\src\report\images\\"
-                screenshoturl = r"D:\code\git\test\src\report\images\\"
+                screenshoturl = r"C:\ProgramData\Jenkins\.jenkins\workspace\python_autotest\src\report\images\\"
+                # screenshoturl = r"D:\code\git\test\src\report\images\\"
                 # 时间样式
                 timestrmap = time.strftime('%Y%m%d_%H.%M.%S')
                 # 寻找失败时自动截图至指定目录images，截图名称为 时间戳 + png后缀
