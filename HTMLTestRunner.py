@@ -170,7 +170,7 @@ class Template_mixin(object):
 
     DEFAULT_TITLE = '自动化测试报告'
     DEFAULT_DESCRIPTION = ''
-    DEFAULT_TESTER = '天枢'
+    DEFAULT_TESTER = '测试测试'
 
     RESULT = None
 

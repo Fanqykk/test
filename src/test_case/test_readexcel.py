@@ -1,4 +1,3 @@
-import os
 import time
 import pytest
 import unittest
@@ -6,6 +5,7 @@ import ddt
 from src.common.read_excel import ReadExcel
 from src.pages import login
 from src.common import driver_config
+from src.common.screenshots import Screenshots
 
 excelpath = "D://code//git//test//src//data//login_data.xlsx"
 print(excelpath)
@@ -44,14 +44,7 @@ class TestLogin(unittest.TestCase):
                     self.assertEqual(exp, message)
                 except Exception as e:
                     print('断言失败', e)
-                    screenshoturl = r"C:\ProgramData\Jenkins\.jenkins\workspace\python_autotest\src\report\images\\"
-                    # screenshoturl = r"D:\code\git\test\src\report\images\\"
-                    # 时间样式
-                    timestrmap = time.strftime('%Y%m%d_%H.%M.%S')
-                    # 寻找失败时自动截图至指定目录images，截图名称为 时间戳 + png后缀
-                    imgPath = os.path.join(screenshoturl, '%s.png' % str(timestrmap))
-                    self.driver.save_screenshot(imgPath)
-                    print('screenshot:', timestrmap, '.png')
+                    Screenshots.get_image(self)
         except Exception as e:
             print("手机号正确", e)
             self.login.input_password(password)  # 输入密码
@@ -65,23 +58,7 @@ class TestLogin(unittest.TestCase):
                 self.assertEqual(exp, result)
             except Exception as e:
                 print('断言失败', e)
-                screenshoturl = r"C:\ProgramData\Jenkins\.jenkins\workspace\python_autotest\src\report\images\\"
-                # screenshoturl = r"D:\code\git\test\src\report\images\\"
-                # 时间样式
-                timestrmap = time.strftime('%Y%m%d_%H.%M.%S')
-                # 寻找失败时自动截图至指定目录images，截图名称为 时间戳 + png后缀
-                imgPath = os.path.join(screenshoturl, '%s.png' % str(timestrmap))
-                self.driver.save_screenshot(imgPath)
-                print('screenshot:', timestrmap, '.png')
-        '''	
-        error_mes = self.driver.find_element_by_id("com.tencent.mm:id/ffh").text
-        print(error_mes)
-        try:
-            assert error_mes == u'帐号或密码错误，请重新填写。'
-            print('Test pass.')
-        except Exception as e:
-            print("Test fail.", format(e))
-        '''
+                Screenshots.get_image(self)
 
     def tearDown(self):
         self.driver.quit()
