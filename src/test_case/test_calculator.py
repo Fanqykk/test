@@ -2,6 +2,7 @@ import time
 import unittest
 from appium import webdriver
 from src.common.screenshots import Screenshots
+from src.common.logger import Log
 
 
 class MyTests(unittest.TestCase):
@@ -24,6 +25,7 @@ class MyTests(unittest.TestCase):
         x0 = window['width'] * 0.8  # 起始x坐标
         x1 = window['width'] * 0.2  # 终止x坐标
         y = window['height'] * 0.5  # y坐标
+        Log().info(" 打开超级计算器")
         for i in range(n):
             self.driver.swipe(x0, y, x1, y, t)
             time.sleep(1)
@@ -56,6 +58,7 @@ class MyTests(unittest.TestCase):
         except Exception as e:
             print("Test fail.", format(e))
             Screenshots.get_image(self)
+            Log().error(" 断言失败")
 
     # 测试结束后执行的方法
     def tearDown(self):

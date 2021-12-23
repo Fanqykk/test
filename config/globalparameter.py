@@ -14,5 +14,6 @@ report_name = report_path + time.strftime('%Y-%m-%d_%H_%M_%S_', time.localtime()
 # img存放路径
 img_path = project_path + "\\src\\report\\images\\"
 img_name = img_path + time.strftime('%Y-%m-%d_%H_%M_%S_', time.localtime()) + ".png"
-
+# log存放路径
+log_path = project_path + "\\src\\report\\logs\\"
 
