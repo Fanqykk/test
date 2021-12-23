@@ -1,5 +1,4 @@
 import time
-
 import pytest
 import unittest
 from src.data.data import *
@@ -9,7 +8,7 @@ from src.common import driver_config
 
 
 @ddt
-class TestLong(unittest.TestCase):
+class TestLogin(unittest.TestCase):
     def setUp(self):
         driver = driver_config.Driver_Config()
         self.driver = driver.get_driver()
@@ -17,7 +16,7 @@ class TestLong(unittest.TestCase):
     @data(*get_log_data())
     @unpack
     @pytest.mark.flaky(rerus=3)
-    def test_long_1(self, username, password):
+    def test_login_1(self, username, password):
         """微信登录"""
         self.login = login.Login_page(self.driver)
         self.login.click_enter_button()  # 点击登录按钮
@@ -32,6 +31,16 @@ class TestLong(unittest.TestCase):
         ts = self.driver.find_element_by_id("com.tencent.mm:id/erw")
         self.assertIn("短信验证码", ts.text, msg='fail')
         self.login.click_nextstep_button()  # 点击登录按钮
+        time.sleep(3)
+        '''
+        error_mes = self.driver.find_element_by_id("com.tencent.mm:id/ffh").text
+        print(error_mes)
+        try:
+            assert error_mes == u'帐号或密码错误，请重新填写。'
+            print('Test pass.')
+        except Exception as e:
+            print("Test fail.", format(e))
+        '''
 
     def tearDown(self):
         self.driver.quit()

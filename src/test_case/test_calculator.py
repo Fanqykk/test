@@ -1,6 +1,8 @@
 import time
 import unittest
 from appium import webdriver
+from src.common.screenshots import Screenshots
+from src.common.logger import Log
 
 
 class MyTests(unittest.TestCase):
@@ -23,6 +25,7 @@ class MyTests(unittest.TestCase):
         x0 = window['width'] * 0.8  # 起始x坐标
         x1 = window['width'] * 0.2  # 终止x坐标
         y = window['height'] * 0.5  # y坐标
+        Log().info(" 打开超级计算器")
         for i in range(n):
             self.driver.swipe(x0, y, x1, y, t)
             time.sleep(1)
@@ -30,12 +33,6 @@ class MyTests(unittest.TestCase):
         for i in range(5):
             self.driver.find_element_by_id('com.youdao.calculator:id/view_empty_container').click()
             time.sleep(1)
-
-        '''btn_xpath = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.view.View/android.widget.GridView/android.widget.FrameLayout[{0}]/android.widget.FrameLayout'
-        self.driver.find_element_by_xpath(btn_xpath.format(7)).click()
-        self.driver.find_element_by_xpath(btn_xpath.format(10)).click()
-        self.driver.find_element_by_xpath(btn_xpath.format(8)).click()
-        time.sleep(5)'''
 
         self.driver.find_element_by_xpath(
         "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.view.ViewGroup/android.widget.GridView/android.widget.FrameLayout[17]/android.widget.FrameLayout").click()
@@ -54,6 +51,14 @@ class MyTests(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element_by_id("com.youdao.calculator:id/actionbar_history_view").click()
         time.sleep(2)
+        error_mes = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView").text
+        try:
+            assert error_mes == u'aaaa历史记录'
+            print('Test pass.')
+        except Exception as e:
+            print("Test fail.", format(e))
+            Screenshots.get_image(self)
+            Log().error(" 断言失败")
 
     # 测试结束后执行的方法
     def tearDown(self):
